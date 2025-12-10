@@ -2,7 +2,8 @@
 
 console.log("[Canva Copilot] content script loaded (SAAS WIRING)");
 
-const BACKEND_URL = "http://127.0.0.1:8000/optimize-layout";
+const BACKEND_URL =
+    "https://congenial-space-memory-69x6r7vwp4rv2xggr-8000.app.github.dev/optimize-layout";
 
 // Listen for messages from the popup
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -12,7 +13,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         const goal = message.goal || "";
         console.log("[Canva Copilot] Received goal from popup:", goal);
 
-        // basic placeholder snapshot – later we’ll send real layout info
+        // placeholder snapshot – we’ll make this smarter later
         const snapshot = {
             url: window.location.href,
             timestamp: Date.now(),
@@ -29,7 +30,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 sendResponse({ ok: false, error: String(err) });
             });
 
-        // important: keep the channel open for async response
+        // keep the message channel open for async
         return true;
     }
 
