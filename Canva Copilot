@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Canva Layout Copilot",
+  "version": "0.1",
+  "description": "AI assistant that helps fix Canva layouts.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://www.canva.com/*"],
+  "action": {
+    "default_title": "Canva Copilot",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.canva.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
+
