@@ -49,3 +49,4 @@ function highlightCanvas() {
 }
 
 console.log("[Canva Copilot] end of file loaded");
+
